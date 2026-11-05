@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVerse — Discover What To Watch Next</title>
+  <meta name="description" content="Discover movies, TV shows, anime and documentaries through an intelligent recommendation engine powered by TMDB, Trakt and AI.">
+  <meta property="og:title" content="StreamVerse — Premium Cinematic Stream Hub" />
+  <meta property="og:description"
+    content="Explore movies and TV shows across a network of secure streaming nodes with AI‑enhanced recommendations." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="src/assets/css/reset.css" />
+<link rel="stylesheet" href="src/assets/css/tokens.css" />
+<link rel="stylesheet" href="src/assets/css/utilities.css" />
+<link rel="stylesheet" href="src/assets/css/components.css" />
+<link rel="stylesheet" href="src/assets/css/typography.css" />
+<link rel="stylesheet" href="src/assets/css/layout.css" />
+<link rel="stylesheet" href="src/assets/css/animations.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- PREMIUM CINEMATIC NAVIGATION -->
+    <nav id="mainNav">
+      <div class="nav-left">
+        <div class="nav-logo" onclick="navigate('home')"><span class="logo-icon">◉</span> StreamVerse</div>
+
+        <!-- Netflix-style Browse Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Discover <span class="arrow">▼</span></button>
+          <div class="nav-dropdown-menu" id="browseDropdownMenu">
+            <a href="#" onclick="navigate('home'); return false;">Home</a>
+            <a href="#" onclick="navigate('discover'); return false;">Discover</a>
+            <a href="#" onclick="navigate('movies'); return false;">Movies</a>
+            <a href="#" onclick="navigate('anime'); return false;">Anime</a>
+            <a href="#" onclick="navigate('tv'); return false;">TV Shows</a>
+            <a href="#" onclick="navigate('kdrama'); return false;">K-Dramas</a>
+            <hr class="dropdown-divider">
+            <a href="#" onclick="navigate('genre-action'); return false;">Action</a>
+            <a href="#" onclick="navigate('genre-scifi'); return false;">Sci-Fi</a>
+            <a href="#" onclick="navigate('genre-comedy'); return false;">Comedy</a>
+            <a href="#" onclick="navigate('genre-romance'); return false;">Romance</a>
+            <hr class="dropdown-divider">
+            <a href="#" onclick="openWatchlistSidebar(); return false;">My List</a>
+          </div>
+        </div>
+
+        <!-- Desktop Links -->
+        <div class="nav-desktop-links">
+          <button class="nav-link active" id="nav-home" onclick="navigate('home')">Home</button>
+          <button class="nav-link" id="nav-discover" onclick="navigate('discover')">Discover</button>
+          <button class="nav-link" id="nav-movies" onclick="navigate('movies')">Movies</button>
+          <button class="nav-link" id="nav-tv" onclick="navigate('tv')">TV Shows</button>
+          <button class="nav-link" id="nav-anime" onclick="navigate('anime')">Anime</button>
+          <button class="nav-link" id="nav-watchlist" onclick="openWatchlistSidebar()">My List</button>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <!-- Expanding Search Input -->
+        <div class="nav-search-bar" id="navSearchBar">
+          <span class="search-icon" onclick="toggleNavSearch()">🔍</span>
+          <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Search movies, TV shows, actors..."
+            onkeydown="if(event.key==='Enter') triggerNavSearch()" />
+        </div>
+        <button class="nav-watchlist-btn" onclick="openWatchlistSidebar()">My List</button>
+      </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+      <!-- Dynamic Featured Hero -->
+      <div class="hero-spotlight" id="heroSpotlight">
+        <div class="hero-backdrop" id="heroBackdrop"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+          <span class="hero-badge" id="heroBadge">Featured Spotlight</span>
+          <h1 class="hero-title" id="heroTitle">StreamVerse</h1>
+          <p class="hero-overview" id="heroOverview">Your infinite cinematic universe. Discover something extraordinary.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-play" id="heroPlayBtn">Watch Now</button>
+            <button class="btn-info" id="heroInfoBtn">More Info</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI DISCOVERY BAR -->
+      <div class="home-ai-bar">
+        <span class="home-ai-icon">✦</span>
+        <input type="text" class="home-ai-input" id="homeMoodInput"
+          placeholder="Ask AI: &quot;moody space thriller&quot;, &quot;feel-good romance&quot;, &quot;mind-bending mystery&quot;..."
+          onkeydown="if(event.key==='Enter') triggerHomeMood()" />
+        <button class="home-ai-btn" onclick="triggerHomeMood()">Discover</button>
+      </div>
+
+      <!-- INFINITE CONTENT RAILS -->
+      <div id="homeRailsContainer" class="home-rails-container"></div>
+    </div>
+
+    <!-- DISCOVER PAGE -->
+    <div class="page" id="page-discover">
+      <div class="discover-container">
+        <div class="section-title">Discover Something New</div>
+
+        <!-- AI Discovery Core -->
+        <div class="ai-discover-card">
+          <h3>AI Mood Uplink</h3>
+          <p>Provide a detailed description of your mood, preferred setting, or narrative style to extract highly
+            tailored titles.</p>
+          <div class="ai-discover-form">
+            <input type="text" class="discover-mood-input" id="discoverMoodInput"
+              placeholder="e.g. cozy rainy day romance, mind-bending quantum sci-fi..."
+              onkeydown="if(event.key==='Enter') triggerDiscoverMood()" />
+            <button class="discover-mood-btn" onclick="triggerDiscoverMood()">Discover</button>
+          </div>
+        </div>
+
+        <div class="section" style="padding-left: 0; padding-right: 0;">
+          <div class="section-sub-title">Explore Genres & Categories</div>
+          <div class="genre-pills">
+            <button class="genre-pill" onclick="navigate('genre-action')">Action</button>
+            <button class="genre-pill" onclick="navigate('genre-scifi')">Sci-Fi</button>
+            <button class="genre-pill" onclick="navigate('genre-comedy')">Comedy</button>
+            <button class="genre-pill" onclick="navigate('genre-romance')">Romance</button>
+            <button class="genre-pill" onclick="navigate('anime')">Anime</button>
+            <button class="genre-pill" onclick="navigate('kdrama')">K-Dramas</button>
+            <button class="genre-pill" onclick="navigate('tv')">TV Series</button>
+            <button class="genre-pill" onclick="navigate('movies')">Movies</button>
+          </div>
+        </div>
+
+        <div class="section" style="padding-left: 0; padding-right: 0; margin-top: 2rem;">
+          <div class="section-sub-title">Trending Discoveries</div>
+          <div class="movie-grid" id="discoverTrendingGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY/DIRECTORY PAGE -->
+    <div class="page" id="page-category">
+      <div class="section">
+        <div class="section-title" id="catTitle">Directory</div>
+        <div class="movie-grid" id="catGrid"></div>
+      </div>
+    </div>
+
+    <!-- DETAIL PAGE -->
+    <div class="page" id="page-detail">
+      <div class="detail-bg" id="detailBg"></div>
+
+      <!-- CINEMATIC VIDEO PLAYER -->
+      <div class="player-container" id="playerContainer">
+        <!-- CONNECTION OVERLAY -->
+        <div class="decryption-overlay" id="decryptionOverlay">
+          <div class="loader-wrap">
+            <div class="circle-loader"></div>
+            <div class="loader-status" id="loaderStatus">Establishing Secure Server Uplink...</div>
+          </div>
+          <div class="terminal-logs" id="terminalLogs"></div>
+        </div>
+        <iframe id="videoPlayer" class="video-player" src="" frameborder="0" allowfullscreen
+          allow="autoplay; encrypted-media"></iframe>
+
+        <!-- PLAYBACK ERROR OVERLAY -->
+        <div class="playback-error-overlay" id="playbackErrorOverlay" style="display: none;">
+          <div class="error-content">
+            <div class="error-icon">⚠️</div>
+            <h2>Playback Unavailable</h2>
+            <p>All stream nodes returned unresponsive indicators. The content could not be established.</p>
+            <div class="error-actions">
+              <button class="hud-btn primary-hud-btn" onclick="playTeaser()">Watch Trailer</button>
+              <button class="hud-btn secondary-hud-btn" onclick="toggleWatchlist()">Add to Watchlist</button>
+              <button class="hud-btn outline-hud-btn" onclick="retryBestProvider()">Try Alternative Source</button>
+              <button class="hud-btn outline-hud-btn" id="btnExternalProvider" onclick="openExternalProvider()">Open
+                External Provider</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-layout">
+        <div class="detail-poster-wrap">
+          <img class="detail-poster" id="detailPoster" src="" alt="Poster" />
+        </div>
+
+        <div class="detail-info">
+          <h1 class="detail-title" id="detailTitle">Title</h1>
+
+          <div class="detail-meta" id="detailMeta">
+            <!-- Year and TMDB/IMDb ratings injected dynamically -->
+          </div>
+
+          <!-- PLAY & WATCHLIST HUD CONTROLS -->
+          <div class="detail-hud-actions">
+            <button class="hud-btn play-hud-btn" id="btnPlayNow" onclick="playNowClick()">Play Now</button>
+            <button class="hud-btn primary-hud-btn" id="btnTrailer" onclick="playTeaser()">Watch Trailer</button>
+            <button class="hud-btn secondary-hud-btn" id="btnWatchlist" onclick="toggleWatchlist()">Add to
+              Watchlist</button>
+            <button class="hud-btn outline-hud-btn" id="btnToggleOffline"
+              onclick="const hide = localStorage.getItem('hideOffline') === 'true'; localStorage.setItem('hideOffline', !hide); navigate('detail', currentDetailItem);">Hide
+              Offline Nodes</button>
+          </div>
+
+          <!-- TV SHOW EPISODE PANEL -->
+          <div class="tv-tracker" id="tvTracker" style="display: none;">
+            <!-- Hidden selects kept for backward compat with loadEmbed / playNowClick -->
+            <select id="seasonSelect" style="display:none"></select>
+            <select id="episodeSelect" style="display:none"></select>
+            <!-- Netflix-style episode panel -->
+            <div id="episodePanelMount" class="episode-panel-mount"></div>
+          </div>
+
+          <div class="detail-overview" id="detailOverview">Overview</div>
+
+          <div class="section-title"
+            style="margin-top: 2rem; font-size: 1.1rem; padding-left: 0.5rem; border-left: 3px solid var(--accent);">
+            Uplink Gateway Nodes</div>
+          <div class="stream-grid" id="detailProviders">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEASER MODAL -->
+    <div class="teaser-modal" id="teaserModal" onclick="closeTeaser(event)">
+      <div class="teaser-content" onclick="event.stopPropagation()">
+        <div class="teaser-header">
+          <span class="teaser-title" id="teaserTitle">Official Teaser Stream</span>
+          <button class="teaser-close" onclick="closeTeaser(null)">×</button>
+        </div>
+        <div class="teaser-body">
+          <iframe id="teaserPlayer" class="teaser-iframe" src="" frameborder="0" allow="autoplay; encrypted-media"
+            allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- WATCHLIST SIDEBAR MODAL -->
+    <div class="watchlist-modal" id="watchlistSidebarModal"
+      onclick="document.getElementById('watchlistSidebarModal').classList.remove('active');">
+      <div class="watchlist-sidebar" onclick="event.stopPropagation()">
+        <div class="watchlist-header">
+          <span class="watchlist-title">My List</span>
+          <button class="watchlist-close"
+            onclick="document.getElementById('watchlistSidebarModal').classList.remove('active');">×</button>
+        </div>
+        <div class="watchlist-items" id="watchlistSidebarItems">
+          <!-- Items injected via JS -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="providers/providerTypes.js"></script>
+  <script src="providers/multiembed.js"></script>
+  <script src="providers/videasy.js"></script>
+  <script src="providers/vidcore.js"></script>
+  <script src="providers/twoembed.js"></script>
+  <script src="providers/playerManager.js"></script>
+  <script src="episodeEngine.js"></script>
+  <script src="homeEngine.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+// Template for component metadata
+// Replace placeholders with actual values for each component
+export const metadata = {
+  id: "{{id}}",
+  name: "{{name}}",
+  displayName: "{{displayName}}",
+  description: "{{description}}",
+  version: "1.0.0",
+  since: "2026-06-27",
+  status: "stable",
+  category: "{{category}}",
+  author: "{{author}}",
+  tags: [],
+  dependencies: [],
+  exports: [],
+  themeAware: true,
+  responsive: true,
+  accessibility: true,
+  keyboard: true,
+  rtl: false,
+  reducedMotion: true,
+  playground: true,
+  docs: true,
+  experimental: false,
+  deprecated: false,
+  css: "{{component}}.css",
+  license: "MIT",
+  maintainers: [],
+  homepage: "",
+  repository: ""
+};
