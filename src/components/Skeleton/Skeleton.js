@@ -25,3 +25,4 @@ class Skeleton {
 }
 
 module.exports = { Skeleton, SkeletonView };
+

@@ -10,3 +10,4 @@ function BadgeView(props = {}) {
 }
 
 module.exports = { BadgeView };
+

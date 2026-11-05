@@ -23,3 +23,4 @@ describe('Badge Component', () => {
     expect(badge.render()).toContain('sv-badge--success');
   });
 });
+

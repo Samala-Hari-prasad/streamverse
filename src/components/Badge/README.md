@@ -15,3 +15,4 @@ const html = BadgeView({ text: '4K ULTRA HD', variant: 'accent', size: 'sm' });
 - `variant`: `'accent' | 'surface' | 'glass' | 'success' | 'warning' | 'outline'` (default: `'surface'`)
 - `size`: `'sm' | 'md'` (default: `'md'`)
 - `className`: `string` (Optional additional class names)
+

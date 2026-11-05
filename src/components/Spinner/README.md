@@ -15,3 +15,4 @@ const html = SpinnerView({ size: 'md', variant: 'accent' });
 - `variant`: `'accent' | 'white' | 'muted'` (default: `'accent'`)
 - `label`: `string` (ARIA accessible label, default: `'Loading...'`)
 - `className`: `string` (Optional additional class names)
+

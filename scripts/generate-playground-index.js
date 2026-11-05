@@ -196,3 +196,4 @@ fs.writeFileSync(htmlOutput, htmlContent, 'utf8');
 console.log(`Playground generated with ${components.length} components:`);
 console.log(` - HTML Index: ${htmlOutput}`);
 console.log(` - Data Module: ${jsOutput}`);
+

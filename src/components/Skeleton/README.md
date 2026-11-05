@@ -16,3 +16,4 @@ const html = SkeletonView({ variant: 'poster' });
 - `width`: `string` (Optional CSS width)
 - `height`: `string` (Optional CSS height)
 - `className`: `string` (Optional CSS class names)
+

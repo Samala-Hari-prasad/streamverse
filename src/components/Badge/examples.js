@@ -13,3 +13,4 @@ module.exports = [
     code: 'BadgeView({ text: "IMDb 8.7", variant: "warning", size: "md" })'
   }
 ];
+

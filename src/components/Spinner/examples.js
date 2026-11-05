@@ -13,3 +13,4 @@ module.exports = [
     code: 'SpinnerView({ size: "lg", variant: "accent", label: "Loading stream..." })'
   }
 ];
+

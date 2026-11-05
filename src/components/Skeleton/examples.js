@@ -13,3 +13,4 @@ module.exports = [
     code: 'SkeletonView({ variant: "backdrop" })'
   }
 ];
+

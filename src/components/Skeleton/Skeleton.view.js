@@ -18,3 +18,4 @@ function SkeletonView(props = {}) {
 }
 
 module.exports = { SkeletonView };
+

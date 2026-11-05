@@ -30,3 +30,4 @@ describe('Button Component', () => {
     expect(btn.render()).toContain('sv-btn--loading');
   });
 });
+

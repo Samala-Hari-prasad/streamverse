@@ -37,3 +37,4 @@ class Button {
 }
 
 module.exports = { Button, ButtonView };
+

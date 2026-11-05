@@ -20,3 +20,4 @@ describe('Skeleton Component', () => {
     expect(skel.render()).toContain('sv-skeleton--circle');
   });
 });
+

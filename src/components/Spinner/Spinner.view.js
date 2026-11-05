@@ -10,3 +10,4 @@ function SpinnerView(props = {}) {
 }
 
 module.exports = { SpinnerView };
+

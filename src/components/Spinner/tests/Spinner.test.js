@@ -23,3 +23,4 @@ describe('Spinner Component', () => {
     expect(spinner.render()).toContain('sv-spinner--lg');
   });
 });
+
