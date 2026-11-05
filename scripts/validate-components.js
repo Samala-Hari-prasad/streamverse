@@ -4,7 +4,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob');
 
 const COMPONENTS_ROOT = path.resolve(__dirname, '../src/components');
 const BUILD_CONFIG = path.resolve(__dirname, '../build.config.json');
@@ -56,7 +55,8 @@ function validateComponent(compName) {
   ];
 
   requiredFiles.forEach(f => {
-    if (!files.includes(f)) {
+    const found = files.some(file => file.toLowerCase() === f.toLowerCase());
+    if (!found) {
       rpt.errors.push(`Missing required file ${f} in component ${compName}`);
     }
   });

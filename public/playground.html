@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamVerse — Component Playground</title>
+  <link rel="stylesheet" href="/src/assets/css/reset.css">
+  <link rel="stylesheet" href="/src/assets/css/tokens.css">
+  <link rel="stylesheet" href="/src/assets/css/typography.css">
+  <link rel="stylesheet" href="/src/assets/css/layout.css">
+  <link rel="stylesheet" href="/src/assets/css/components.css">
+  <link rel="stylesheet" href="/src/assets/css/animations.css">
+  <style>
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      padding: var(--space-6);
+      font-family: var(--font-body);
+    }
+    .playground-header {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: var(--space-4);
+      margin-bottom: var(--space-6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .playground-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .playground-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: var(--space-5);
+    }
+    .playground-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      transition: border-color var(--duration-fast);
+    }
+    .playground-card:hover {
+      border-color: var(--color-accent);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-2);
+    }
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-3);
+    }
+    .card-meta {
+      display: flex;
+      gap: var(--space-4);
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .badge.stable { background: rgba(70, 211, 105, 0.2); color: #46d369; }
+    .badge.beta { background: rgba(245, 197, 24, 0.2); color: #f5c518; }
+    .preview-stage {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+    }
+    .preview-placeholder {
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="playground-header">
+    <div>
+      <h1 class="playground-title">◉ StreamVerse Component Playground</h1>
+      <p style="color: var(--color-text-secondary); margin: 0;">Interactive UI Primitive Catalog &amp; Verification Stage</p>
+    </div>
+    <div>
+      <span class="badge stable">4 Components Registered</span>
+    </div>
+  </div>
+  <div class="playground-grid">
+    
+  <div class="playground-card" id="card-badge">
+    <div class="card-header">
+      <span class="card-title">Badge</span>
+      <span class="badge stable">stable</span>
+    </div>
+    <p class="card-desc">Compact visual indicator for media quality (4K, HDR), network status, ratings, and genre tags.</p>
+    <div class="card-meta">
+      <span>Category: <strong>primitives</strong></span>
+      <span>Version: <strong>1.0.0</strong></span>
+    </div>
+    <div class="preview-stage" id="preview-badge">
+      <!-- Live preview mount -->
+      <div class="preview-placeholder">Component Preview (Badge)</div>
+    </div>
+  </div>
+
+
+  <div class="playground-card" id="card-button">
+    <div class="card-header">
+      <span class="card-title">Button</span>
+      <span class="badge stable">stable</span>
+    </div>
+    <p class="card-desc">Interactive button primitive supporting multiple visual variants, sizes, icon slots, and loading states.</p>
+    <div class="card-meta">
+      <span>Category: <strong>actions</strong></span>
+      <span>Version: <strong>1.0.0</strong></span>
+    </div>
+    <div class="preview-stage" id="preview-button">
+      <!-- Live preview mount -->
+      <div class="preview-placeholder">Component Preview (Button)</div>
+    </div>
+  </div>
+
+
+  <div class="playground-card" id="card-skeleton">
+    <div class="card-header">
+      <span class="card-title">Skeleton</span>
+      <span class="badge stable">stable</span>
+    </div>
+    <p class="card-desc">Shimmering placeholder loader for movie posters, carousels, text rails, and hero backdrops.</p>
+    <div class="card-meta">
+      <span>Category: <strong>primitives</strong></span>
+      <span>Version: <strong>1.0.0</strong></span>
+    </div>
+    <div class="preview-stage" id="preview-skeleton">
+      <!-- Live preview mount -->
+      <div class="preview-placeholder">Component Preview (Skeleton)</div>
+    </div>
+  </div>
+
+
+  <div class="playground-card" id="card-spinner">
+    <div class="card-header">
+      <span class="card-title">Spinner</span>
+      <span class="badge stable">stable</span>
+    </div>
+    <p class="card-desc">Animated circular loading indicator for streaming gateways and async operations.</p>
+    <div class="card-meta">
+      <span>Category: <strong>primitives</strong></span>
+      <span>Version: <strong>1.0.0</strong></span>
+    </div>
+    <div class="preview-stage" id="preview-spinner">
+      <!-- Live preview mount -->
+      <div class="preview-placeholder">Component Preview (Spinner)</div>
+    </div>
+  </div>
+
+  </div>
+</body>
+</html>

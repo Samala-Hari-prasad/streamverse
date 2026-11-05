@@ -1,0 +1,46 @@
+/* src/components/Spinner/Spinner.css */
+.sv-spinner {
+  display: inline-block;
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--color-accent);
+  animation: spin 0.75s linear infinite;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.sv-spinner--xs {
+  width: 12px;
+  height: 12px;
+  border-width: 1.5px;
+}
+
+.sv-spinner--sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.sv-spinner--md {
+  width: 24px;
+  height: 24px;
+  border-width: 2.5px;
+}
+
+.sv-spinner--lg {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+.sv-spinner--white {
+  border-top-color: #ffffff;
+}
+
+.sv-spinner--accent {
+  border-top-color: var(--color-accent);
+}
+
+.sv-spinner--muted {
+  border-top-color: var(--color-text-secondary);
+}

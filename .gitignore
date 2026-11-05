@@ -23,6 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 *.stackdump
 
+# Build outputs & validation reports
+build/
+dist/
+
 # OS & IDE metadata
 .DS_Store
 Thumbs.db

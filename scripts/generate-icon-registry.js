@@ -15,11 +15,28 @@ if (!fs.existsSync(configPath)) {
   process.exit(1);
 }
 
-// The config file exports default array of icon names.
-const icons = require(configPath);
+let icons = null;
+
+try {
+  const loaded = require(configPath);
+  icons = Array.isArray(loaded) ? loaded : (loaded && loaded.default ? loaded.default : null);
+} catch (_) {
+  // ESM or syntax fallback: extract string literals from array in file
+}
 
 if (!Array.isArray(icons)) {
-  console.error('Icon config must export an array of icon names');
+  const raw = fs.readFileSync(configPath, 'utf8');
+  const match = raw.match(/\[([\s\S]*?)\]/);
+  if (match) {
+    icons = match[1]
+      .split(',')
+      .map(s => s.trim().replace(/['"`]/g, ''))
+      .filter(Boolean);
+  }
+}
+
+if (!Array.isArray(icons) || icons.length === 0) {
+  console.error('Icon config must export or contain an array of icon names');
   process.exit(1);
 }
 
@@ -27,12 +44,12 @@ let content = `// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
 export const iconRegistry = {\n`;
 
 icons.forEach((name) => {
-  // Ensure name is a valid identifier string
   const safeName = name.replace(/[^a-zA-Z0-9_$]/g, '');
   content += `  ${safeName}: () => import('lucide/icons/${safeName}'),\n`;
 });
 
 content += `};\n`;
 
+fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, content, { encoding: 'utf8' });
 console.log('Icon registry generated at', outputPath);

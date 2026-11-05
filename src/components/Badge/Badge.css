@@ -1,0 +1,66 @@
+/* src/components/Badge/Badge.css */
+.sv-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+}
+
+/* Sizes */
+.sv-badge--sm {
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  line-height: 1.2;
+}
+
+.sv-badge--md {
+  font-size: 0.775rem;
+  padding: 2px 8px;
+  line-height: 1.3;
+}
+
+/* Variants */
+.sv-badge--accent {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.sv-badge--surface {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.sv-badge--glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sv-badge--success {
+  background-color: rgba(70, 211, 105, 0.15);
+  color: #46d369;
+  border-color: rgba(70, 211, 105, 0.35);
+}
+
+.sv-badge--warning {
+  background-color: rgba(245, 197, 24, 0.15);
+  color: #f5c518;
+  border-color: rgba(245, 197, 24, 0.35);
+}
+
+.sv-badge--outline {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
